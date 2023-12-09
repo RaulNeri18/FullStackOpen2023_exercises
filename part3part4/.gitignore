@@ -1,8 +1,0 @@
-node_modules
-fly.toml
-Dockerfile
-.dockerignore
-build/
-
-# Environment Variables for Localhost
-.env
