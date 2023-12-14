@@ -1,12 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createStore } from 'redux'
+//import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
+//import { configureStore } from '@reduxjs/toolkit'
 
+import store from './store'
 import App from './App'
-import noteReducer from './reducers/noteReducer'
+//import noteReducer from './reducers/noteReducer'
+//import filterReducer from './reducers/filterReducer'
+//import noteService from './services/notes'
+//import noteReducer, { setNotes } from './reducers/noteReducer'
 
-const store = createStore(noteReducer)
+// using combineReducers
+/*
+const reducer = combineReducers({
+  notes: noteReducer,
+  filter: filterReducer
+})
+
+const store = createStore(reducer)
+*/
+
+// using configureStore
+/*
+const store = configureStore({
+  reducer: {
+    notes: noteReducer,
+    filter: filterReducer
+  }
+})
+*/
+
+//noteService.getAll().then(notes =>
+//  store.dispatch(setNotes(notes))
+//)
 
 /*
 const counterReducer = (state = 0, action) => {
@@ -50,8 +77,14 @@ const App = () => {
 }
 */
 
+//console.log(store.getState())
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <App />
   </Provider>
 )
+
+//store.subscribe(() => console.log(store.getState()))
+//store.dispatch(filterChange('IMPORTANT'))
+//store.dispatch(createNote('combineReducers forms one reducer from many simple reducers'))
